@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 
 
+
 //import registerServiceWorker from './registerServiceWorker';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
@@ -18,9 +19,11 @@ console.log(store.getState());
 
 
 ReactDOM.render(
-    <HashRouter>
-        <App />
-    </HashRouter>,
+    <Provider store={store}>
+        <HashRouter>
+          <App />
+        </HashRouter>
+    </Provider>,
     document.getElementById('root')
 
 );

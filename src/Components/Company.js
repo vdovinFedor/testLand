@@ -4,17 +4,14 @@ import CompanyList from "./CompanyList";
 
 
 class Company extends Component {
-    constructor(){
-        super(props)
-    }
 
     render() {
-        const {idCompany, nameCompany, addressCompany, innCompany, editCompany, deleteCompany} = this.props;
+        const {id, name, address} = this.props;
         return (
             <ListGroupItem bsStyle="info">
-                <h2>bujhm</h2>
-                <address>yoyoyo</address>
-                <div>{innCompany}</div>
+                <h2>{name}</h2>
+                <address>{address}</address>
+
                 <button >Редактировать</button>
                 <button >Удалить</button>
             </ListGroupItem>

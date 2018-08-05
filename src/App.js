@@ -3,6 +3,8 @@ import './App.css';
 import Header from "./Components/Header.js";
 import Footer from "./Components/Footer.js";
 import { Button } from 'react-bootstrap';
+import { connect } from 'react-redux'
+import CompanyList from "./Components/CompanyList";
 
 class App extends Component {
   render() {
@@ -10,7 +12,7 @@ class App extends Component {
       <div className="App">
         <Header />
           <Button bsStyle='success'>hi</Button>
-        <Footer />
+        <CompanyList />
       </div>
     );
   }

@@ -31,7 +31,7 @@ let initialState= [
         },
 ];
 
-const companyReduser = (state = initialState, action) => {
+export default function companyReduser (state = initialState, action) {
     switch (action.type) {
         case 'ADD' : {
             return [
@@ -53,4 +53,4 @@ const companyReduser = (state = initialState, action) => {
 //    return initialState;
 //}
 
-export default companyReduser;
+

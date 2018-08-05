@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListGroupItem from '../../node_modules/react-bootstrap/lib/ListGroupItem'
-
+import Company from './Company';
+import { connect } from 'react-redux';
 // показать-скрыть
 class CompanyList extends Component {
     constructor(){
@@ -11,23 +12,35 @@ class CompanyList extends Component {
     }
 
     showCity = () => {
-      this.setState({
-          showCity: !this.state.showCity
-      })
+        this.setState({
+            showCity: !this.state.showCity
+        })
     };
-   render() {
-    const {idCompany, nameCompany, addressCompany, innCompany} = this.props;
-        return (
-            <ListGroupItem bsStyle="info" key={this.props.company.id}>
-                <h2 key={this.props.company.id + 20}>{this.props.company.name}</h2>
-                <address key={this.props.company.id + 30}>{this.state.showCity ? this.props.company.adress : ''}</address>
-                <div></div>
-                <button onClick={this.showCity}>{this.state.showCity ? 'Скрыть адрес' : 'Показать адрес' }</button>
-                <button >Удалить</button>
-            </ListGroupItem>
-        );
+    render() {
+        return(
+            <div>
+                {this.props.company.map(company =>{
+                    return (
+                        <Company
+                            id = {company.id}
+                            name = {company.name}
+                            adress = {company.address}
+                        />
+                    )})}
+            </div>)
     }
-
 }
 
-export default CompanyList;
+const mapStateToProps = (state) => ({
+    company: state.company
+})
+export default connect(mapStateToProps)(CompanyList);
+                 // {/*<ListGroupItem bsStyle="info" key={this.props.company.id}>*/}
+               //  {/*<h2 key={this.props.company.id + 20}>{this.props.company.name}</h2>*/}
+               //   {/*<address key={this.props.company.id + 30}>{this.state.showCity ? this.props.company.adress : ''}</address>*/}
+               //  {/**/}
+               //   {/*<button onClick={this.showCity}>{this.state.showCity ? 'Скрыть адрес' : 'Показать адрес' }</button>*/}
+               //   {/*<button >Удалить</button>*/}
+               // {/*</ListGroupItem>*/}
+
+
