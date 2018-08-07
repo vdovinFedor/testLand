@@ -10,31 +10,56 @@ class CompanyList extends Component {
             showCity: false
         }
     }
-
+    componentDidMount = () =>{
+        this.props.loadCompany();
+    };
     showCity = () => {
         this.setState({
             showCity: !this.state.showCity
         })
-    };
-    render() {
-        return(
-            <div>
-                {this.props.company.map(company =>{
-                    return (
-                        <Company
-                            id = {company.id}
-                            name = {company.name}
-                            adress = {company.address}
-                        />
-                    )})}
-            </div>)
     }
-}
+renderCompany = (array) => (array && array.map(company =>{
+    return (
+        <Company
+            id = {company.id}
+            name = {company.name}
+            adress = {company.address}
+        />
+    )}));
 
+render() {
+    return(
+        <div>
+            {this.renderCompany(this.props.company)}
+
+        </div>)
+}}
+//данные из стора
 const mapStateToProps = (state) => ({
-    company: state.company
-})
-export default connect(mapStateToProps)(CompanyList);
+    company: state.windowShow.company54,
+    oneProps: [1,2,4]
+    });
+const mapDispatchToProps = (dispatch) =>{
+    return {loadCompany: () => {
+        dispatch({
+            type: 'ADD',
+            payload: [
+                {
+                    id: 2,
+                    name: 'OKE',
+                    adress: 'Saratov'
+                },
+                {
+                    id: 3,
+                    name: 'sargaz',
+                    adress: 'Saratov'
+                }
+            ]
+        })
+        }};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CompanyList);
                  // {/*<ListGroupItem bsStyle="info" key={this.props.company.id}>*/}
                //  {/*<h2 key={this.props.company.id + 20}>{this.props.company.name}</h2>*/}
                //   {/*<address key={this.props.company.id + 30}>{this.state.showCity ? this.props.company.adress : ''}</address>*/}

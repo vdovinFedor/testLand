@@ -7,13 +7,9 @@ const initialState = {
 
 export default function windowShow(state = initialState, action) {
     switch (action.type) {
-        case 'OPEN' : {
-            return {
-                ...state,
-                windowShow: true,
-                modalType: action.modalType,
-                id: action.id
-            };
+        case 'ADD' : {
+            console.log('reducer ADD', action.payload);
+            return {company54: action.payload}
         }
 
         case 'CLOSE' : {
@@ -25,6 +21,8 @@ export default function windowShow(state = initialState, action) {
             };
         }
 
-        default : return state;
+        default :
+            console.log('default winwids reducer');
+            return state;
     }
 }

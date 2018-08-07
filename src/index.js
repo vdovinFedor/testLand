@@ -14,7 +14,7 @@ import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 
 //инициализация стора с параметром главного редьюсера
-const store = createStore(combineReducers);
+const store = createStore(combineReducers,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 console.log(store.getState());
 
 

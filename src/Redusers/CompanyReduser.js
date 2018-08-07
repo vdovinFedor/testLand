@@ -31,18 +31,14 @@ let initialState= [
         },
 ];
 
-export default function companyReduser (state = initialState, action) {
+export default function companyReducer (state = initialState, action) {
     switch (action.type) {
-        case 'ADD' : {
+        case 'ADD' :
             return [
-                ...state, {
-                    id: state.id + 1,
-                    name: action.name,
-                    adress: action.adress
-                }
-            ];
-        }
-            ;
+                ...state,
+                ...action.payload
+                    ];
+
         default:
             return state;
     }
