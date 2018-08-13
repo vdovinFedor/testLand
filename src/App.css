@@ -54,6 +54,13 @@
 }
 
 
+
+.Head .container{
+  width:400px;
+  background-color:  whitesmoke;
+  border: 2px solid #CECECE;
+  border-radius: 15px;
+}
 .footer {
   
   bottom: 0;

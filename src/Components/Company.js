@@ -11,7 +11,7 @@ class Company extends Component {
             showCity: false
         }
           
-        //this.deleteCompany=this.deleteCompany.bind(this);
+    
     }
     
     showCity = () => {
@@ -19,9 +19,11 @@ class Company extends Component {
             showCity: !this.state.showCity
         })
     }
-    
+    // deleteBtnClick(){
+    //     this.props.
+    // }
     render() {
-        const {id, name, adress} = this.props;
+        const {id, name, adress, deleteCompany} = this.props;
         return (
             <div className="row" bsStyle="info">
                 <div className="col-6 text-left">
@@ -29,7 +31,7 @@ class Company extends Component {
                 </div>
                 
                 <div className="col-3 text-left">
-                    <address >{adress}</address>
+                    <address >{this.state.showCity ? this.props.adress : ''}</address>
                 </div>
                 <div className="col-3 text-left">
                 <button className="btn btn-default" onClick={this.showCity}>{this.state.showCity ? 'Скрыть адрес' : 'Показать адрес' }</button>
@@ -43,6 +45,8 @@ class Company extends Component {
 const mapStateToProps = (state) => ({
     company: state.companyReducer
        });
+
+
 // deleteCompany(idCompany) {
 //     this.props.action('deleteCompany', idCompany); 
 //     }

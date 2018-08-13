@@ -5,26 +5,27 @@ import { connect } from 'react-redux';
 import companyReducer from "../Redusers/CompanyReduser";
 // показать-скрыть
 class CompanyList extends Component {
-    constructor(){
-        super();
-        this.state ={
-            show: false
-        }
+    constructor(props){
+        super(props);
+        this.deleteCompany=this.deleteCompany.bind(this);
     }
     componentDidMount = () =>{
         this.props.loadCompany();
     };
-    showCity = () => {
-        this.setState({
-            showCity: !this.state.showCity
-        })
+
+
+    deleteCompany(idCompany) {
+        
+        this.props.action('deleteCompany', this.state.id); 
     }
+
 renderCompany = (array) => (array && array.map(company =>{
     return (
         <Company
             id = {company.id}
             name = {company.name}
             adress = {company.adress}
+            deleteCompany={this.deleteCompany}
         />
     )}));
 
@@ -49,8 +50,12 @@ const mapDispatchToProps = (dispatch) =>{
                     id: 993,
                     name: 'Magnit',
                     adress: 'Saratov'
-                }
+                }          
             
+            
+        },
+        {
+            type:'DELETE'
         })
         }};
 };

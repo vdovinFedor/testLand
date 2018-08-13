@@ -37,6 +37,12 @@ export default function companyReducer (state = initialState, action) {
                 console.log('reducer ADD', action.payload);
                 return [...state, action.payload]
             }
+        case 'DELETE': {
+            console.log('ydalil');
+            const idx = state.findIndex(item => item.id === action.id);
+            state.splice(idx, 1);
+            return [...state]; 
+        }
         default:
             return state;
     }
