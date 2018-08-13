@@ -7,11 +7,11 @@ let initialState= [
         {
             id: 2,
             name: 'OKE',
-            adress: 'Saratov'
+            adress: 'Tula'
         },
         {
             id: 3,
-            name: 'sargaz',
+            name: 'Sargaz',
             adress: 'Saratov'
         },
         {
@@ -33,12 +33,10 @@ let initialState= [
 
 export default function companyReducer (state = initialState, action) {
     switch (action.type) {
-        case 'ADD' :
-            return [
-                ...state,
-                ...action.payload
-                    ];
-
+         case 'ADD' : {
+                console.log('reducer ADD', action.payload);
+                return [...state, action.payload]
+            }
         default:
             return state;
     }
