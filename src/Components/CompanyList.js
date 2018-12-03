@@ -15,8 +15,8 @@ class CompanyList extends Component {
 
 
     deleteCompany(idCompany) {
-        
-        this.props.action('deleteCompany', this.state.id); 
+
+        this.props.action('deleteCompany', this.state.id);
     }
 
 renderCompany = (array) => (array && array.map(company =>{
@@ -31,11 +31,10 @@ renderCompany = (array) => (array && array.map(company =>{
 
 render() {
     return(
-        
         <div className="companyList">
             {this.renderCompany(this.props.company)}
-
-        </div>)
+        </div>
+    )
 }}
 //данные из стора
 const mapStateToProps = (state) => ({
@@ -45,14 +44,14 @@ const mapDispatchToProps = (dispatch) =>{
     return {loadCompany: () => {
         dispatch({
             type: 'ADD',
-            payload: 
+            payload:
                 {
                     id: 993,
                     name: 'Magnit',
                     adress: 'Saratov'
-                }          
-            
-            
+                }
+
+
         },
         {
             type:'DELETE'
@@ -69,5 +68,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(CompanyList);
                //   {/*<button onClick={this.showCity}>{this.state.showCity ? 'Скрыть адрес' : 'Показать адрес' }</button>*/}
                //   {/*<button >Удалить</button>*/}
                // {/*</ListGroupItem>*/}
-         
+
 

@@ -10,10 +10,10 @@ class Company extends Component {
         this.state ={
             showCity: false
         }
-          
-    
+
+
     }
-    
+
     showCity = () => {
         this.setState({
             showCity: !this.state.showCity
@@ -29,7 +29,7 @@ class Company extends Component {
                 <div className="col-6 text-left">
                     <h2>{name}</h2>
                 </div>
-                
+
                 <div className="col-3 text-left">
                     <address >{this.state.showCity ? this.props.adress : ''}</address>
                 </div>
@@ -48,7 +48,7 @@ const mapStateToProps = (state) => ({
 
 
 // deleteCompany(idCompany) {
-//     this.props.action('deleteCompany', idCompany); 
+//     this.props.action('deleteCompany', idCompany);
 //     }
 export default connect(mapStateToProps)(Company)
 

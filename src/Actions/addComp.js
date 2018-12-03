@@ -1,8 +1,8 @@
-export function delete(id) {
+export const DelAction (id) {
 
     return {
       type: 'DELETE',
       payload: id
     }
-  
+
   }
